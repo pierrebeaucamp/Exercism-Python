@@ -26,4 +26,3 @@ class Robot:
 
     def turn_right(self):
         self.bearing = next(self.__directions)
-        print(self.bearing)
