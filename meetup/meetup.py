@@ -3,8 +3,7 @@ import datetime
 import regex
 
 def meetup_day(year, month, day, label):
-    week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
-            "Sunday"]
+    week = list(calendar.day_name)
 
     try: delta = int(regex.findall(r'\d', label)[0])
     except IndexError: delta = -1 if label == "last" else 1
