@@ -1,15 +1,10 @@
 class Allergies:
-    items = ["cats", "pollen", "chocolate", "tomatoes", "strawberries",
-             "shellfish", "peanuts", "eggs"]
-    lst = []
+    items = ['eggs', 'peanuts', 'shellfish', 'strawberries', 'tomatoes',
+             'chocolate', 'pollen', 'cats']
 
     def __init__(self, score=0):
-        score = bin(score)[2:]
-        score = '00000000'[len(score):] + score
-
-        self.lst = [] # Reset the list to delete previous items
-        for i in range(len(score)):
-            if score[i] == '1': self.lst.extend([self.items[i]])
+        check = lambda x: score & 2**self.items.index(x)
+        self.lst = [i for i in self.items if check(i)]
 
     def is_allergic_to(self, item):
         return item in self.lst
